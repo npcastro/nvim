@@ -45,7 +45,9 @@ return packer.startup(function(use)
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
 
-    -- Colorschemes
+  -- Colorschemes
+  use "lunarvim/colorschemes" -- A bunch of colorschemes to try out
+  use 'folke/tokyonight.nvim'
   use {'dracula/vim', as = 'dracula'} -- Dark dracula theme
   use {'arcticicestudio/nord-vim', as = 'nord'} -- Blueish color pallete
   use {'morhetz/gruvbox'}
