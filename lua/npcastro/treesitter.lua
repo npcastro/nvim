@@ -4,6 +4,10 @@ if not status_ok then
 end
 
 configs.setup {
+  comment = {
+    enable = true,
+    enable_autocmd = false,
+  },
   ensure_installed = {
     "bash",
     "comment",
