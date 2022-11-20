@@ -69,6 +69,7 @@ return packer.startup(function(use)
 
   -- Git
   use "lewis6991/gitsigns.nvim"
+  use "tpope/vim-fugitive"
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
