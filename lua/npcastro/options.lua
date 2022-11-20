@@ -26,5 +26,11 @@ vim.opt.signcolumn = "yes"                      -- always show the sign column, 
 vim.opt.tabstop = 2                             -- insert 2 spaces for a tab
 vim.opt.wrap = false                            -- display lines as one long line
 
+-- Remove trailing whitespaces
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
+})
+
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
