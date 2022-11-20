@@ -69,6 +69,9 @@ return packer.startup(function(use)
   -- Snippets
   use "L3MON4D3/LuaSnip" --snippet engine
 
+  -- Telescope
+  use "nvim-telescope/telescope.nvim"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
