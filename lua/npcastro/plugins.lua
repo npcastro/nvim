@@ -77,6 +77,10 @@ return packer.startup(function(use)
   -- Telescope
   use "nvim-telescope/telescope.nvim"
 
+  -- Tree
+  use "kyazdani42/nvim-tree.lua" -- file explorer
+  use "kyazdani42/nvim-web-devicons" -- optional icons for nvim-tree
+
   -- Treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
