@@ -63,6 +63,9 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp" -- nvim lsp completions
   use "hrsh7th/cmp-nvim-lua" -- nvim lua completions
 
+  -- Git
+  use "lewis6991/gitsigns.nvim"
+
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
   use "williamboman/mason.nvim"
