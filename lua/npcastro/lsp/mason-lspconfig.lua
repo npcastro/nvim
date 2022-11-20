@@ -8,6 +8,7 @@ mason_lspconfig.setup({
     "eslint",
     "html",
     "jsonls",
+    "pyright",
     "solargraph",
     "sumneko_lua",
     "tsserver",
