@@ -1,4 +1,5 @@
 require "npcastro.autopairs"
+require "npcastro.bufferline"
 require "npcastro.cmp"
 require "npcastro.comment"
 require "npcastro.colorscheme"

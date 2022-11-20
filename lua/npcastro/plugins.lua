@@ -47,6 +47,10 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs" -- Automatically close brackets
   use "numToStr/Comment.nvim" -- Commenting plugin
 
+  -- Bufferline
+  use "akinsho/bufferline.nvim" -- Header that shows open buffers
+  use "moll/vim-bbye" -- Prevents closing of windows when buffers are closed
+
   -- Colorschemes
   use "lunarvim/colorschemes" -- A bunch of colorschemes to try out
   use 'folke/tokyonight.nvim'
