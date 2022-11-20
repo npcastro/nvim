@@ -1,3 +1,4 @@
+require "npcastro.autopairs"
 require "npcastro.cmp"
 require "npcastro.colorscheme"
 require "npcastro.keymaps"
