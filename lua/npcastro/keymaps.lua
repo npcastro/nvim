@@ -31,9 +31,11 @@ keymap("n", "<M-Down>", ":resize -2<CR>", opts)
 keymap("n", "<M-Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<M-Right>", ":vertical resize +2<CR>", opts)
 
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+-- Buffers
+keymap("n", "<S-l>", ":bnext<CR>", opts)        -- change to next buffer
+keymap("n", "<S-h>", ":bprevious<CR>", opts)    -- change to previos buffer
+keymap("n", "<leader>q", ":Bd<CR>", opts)       -- close buffer without messing window layout
+keymap("n", "<leader>Q", ":bufdo :Bd<CR>", opts)       -- close all buffers without messing window layout
 
 -- Visual --
 -- Stay in indent mode
