@@ -46,6 +46,7 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Automatically close brackets
   use "numToStr/Comment.nvim" -- Commenting plugin
+  use "lukas-reineke/indent-blankline.nvim" -- identation lines
 
   -- Bufferline
   use "akinsho/bufferline.nvim" -- Header that shows open buffers
