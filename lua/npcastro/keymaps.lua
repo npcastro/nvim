@@ -25,6 +25,9 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
+keymap("n", "<C-d>", "<C-d>zz", opts)
+keymap("n", "<C-u>", "<C-u>zz", opts)
+
 -- Resize with arrows
 keymap("n", "<M-Up>", ":resize +2<CR>", opts)
 keymap("n", "<M-Down>", ":resize -2<CR>", opts)
@@ -50,7 +53,7 @@ keymap("v", "p", '"_dP', opts)  -- allows to paste multiple times tanked text
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
--- Telescope -- 
+-- Telescope --
 --[[ keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = vim_buffer_cat }))<cr>", opts) ]]
 keymap("n", "<leader>f", "<cmd>Telescope find_files <cr>", opts)
 keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
