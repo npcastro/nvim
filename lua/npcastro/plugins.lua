@@ -78,6 +78,9 @@ return packer.startup(function(use)
   use "williamboman/mason-lspconfig.nvim"
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
+  -- Ruby
+  use "RRethy/nvim-treesitter-endwise" -- auto add end
+
   -- Snippets
   use "L3MON4D3/LuaSnip" --snippet engine
 

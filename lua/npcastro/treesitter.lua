@@ -8,6 +8,9 @@ configs.setup {
     enable = true,
     enable_autocmd = false,
   },
+  endwise = {
+    enable = true,
+  },
   ensure_installed = {
     "bash",
     "comment",
