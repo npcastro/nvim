@@ -10,7 +10,7 @@ mason_lspconfig.setup({
     "jsonls",
     "pyright",
     "solargraph",
-    "sumneko_lua",
+    "lua_ls",
     "tsserver",
     "volar",
   }
