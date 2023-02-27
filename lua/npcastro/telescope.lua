@@ -4,27 +4,32 @@ if not status_ok then
 end
 
 local actions = require "telescope.actions"
+local actions_layout = require("telescope.actions.layout")
 
 telescope.setup {
   defaults = {
 
     prompt_prefix = " ",
     selection_caret = " ",
-    path_display = { "smart" },
+    path_display = { "absolute" },
+    preview = {
+      hide_on_startup = true,
+    },
 
     mappings = {
       i = {   -- insert mode mappings
+        ["<C-c>"] = actions.close,
         ["<CR>"] = actions.select_default,
-
         ["<C-j>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
-
         ["<C-n>"] = actions.cycle_history_next,
         ["<C-p>"] = actions.cycle_history_prev,
+        ["<C-r>"] = actions_layout.toggle_preview,
       },
 
       n = {   -- normal mode mappings
         ["<CR>"] = actions.select_default,
+        ["<C-r>"] = actions_layout.toggle_preview,
       },
     },
   },
