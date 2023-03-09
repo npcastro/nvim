@@ -78,6 +78,9 @@ return packer.startup(function(use)
   use "williamboman/mason-lspconfig.nvim"
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
+  -- Lualine
+  use { "nvim-lualine/lualine.nvim", requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
+
   -- Ruby
   use "RRethy/nvim-treesitter-endwise" -- auto add end
 
