@@ -32,6 +32,15 @@ telescope.setup {
         ["<C-r>"] = actions_layout.toggle_preview,
       },
     },
+    vimgrep_arguments = {
+          "rg",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          -- "--smart-case",    -- do not asume case. Favors case sensitivity
+    }
   },
   pickers = {
     -- Default configuration for builtin pickers goes here:
