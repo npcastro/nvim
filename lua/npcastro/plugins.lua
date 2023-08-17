@@ -99,7 +99,6 @@ return packer.startup(function(use)
     "nvim-treesitter/nvim-treesitter",
     run = ":TSUpdate",
   }
-  use "p00f/nvim-ts-rainbow"
   use "JoosepAlviste/nvim-ts-context-commentstring" -- Uses treesitter to set the type of commentstring based on the location of the cursor.
 
   -- Automatically set up your configuration after cloning packer.nvim
