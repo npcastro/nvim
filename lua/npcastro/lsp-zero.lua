@@ -6,7 +6,7 @@ lsp.ensure_installed({
     'jsonls',
     'lua_ls',
     'pyright',
-    'rubocop',
+    -- rubocop must not be installed. Else it collides with the one on projects' gemfiles
     'solargraph',
     'tsserver',
     'volar',
@@ -47,8 +47,12 @@ vim.lsp.set_log_level("debug")
 
 local lspconfig = require('lspconfig')
 
-lspconfig['rubocop'].setup({})
-lspconfig['solargraph'].setup({})
+lspconfig.rubocop.setup({})
+-- lspconfig.solargraph.setup({})
+
+-- local jsonls_opts = require("npcastro.lsp.settings.jsonls")
+-- lspconfig["jsonls"].setup(vim.tbl_deep_extend("force", jsonls_opts, opts))
+
 
 lsp.set_sign_icons({
   error = '✘',
