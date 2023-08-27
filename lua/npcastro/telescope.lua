@@ -59,3 +59,6 @@ telescope.setup {
     -- please take a look at the readme of the extension you want to configure
   },
 }
+
+vim.keymap.set("n", "<leader>f", "<cmd>Telescope find_files <cr>")
+vim.keymap.set("n", "<leader>g", "<cmd>Telescope live_grep<cr>")

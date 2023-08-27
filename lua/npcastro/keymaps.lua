@@ -1,10 +1,5 @@
-local opts = { noremap = true, silent = true }
-
--- Shorten function name
-local keymap = vim.api.nvim_set_keymap
-
 --Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
+vim.keymap.set("", "<Space>", "<Nop>")
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -18,46 +13,35 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
 
-keymap("n", "<leader>e", ":Lex 30<cr>", opts)
-
-keymap("n", "<C-d>", "<C-d>zz", opts)
-keymap("n", "<C-u>", "<C-u>zz", opts)
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
 
 -- Resize with arrows
-keymap("n", "<M-Up>", ":resize +2<CR>", opts)
-keymap("n", "<M-Down>", ":resize -2<CR>", opts)
-keymap("n", "<M-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<M-Right>", ":vertical resize +2<CR>", opts)
+vim.keymap.set("n", "<M-Up>", ":resize +2<CR>")
+vim.keymap.set("n", "<M-Down>", ":resize -2<CR>")
+vim.keymap.set("n", "<M-Left>", ":vertical resize -2<CR>")
+vim.keymap.set("n", "<M-Right>", ":vertical resize +2<CR>")
 
 -- Buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)        -- change to next buffer
-keymap("n", "<S-h>", ":bprevious<CR>", opts)    -- change to previos buffer
-keymap("n", "<leader>q", ":Bd<CR>", opts)       -- close buffer without messing window layout
-keymap("n", "<leader>Q", ":bufdo :Bd<CR>", opts)       -- close all buffers without messing window layout
+vim.keymap.set("n", "<S-l>", ":bnext<CR>")        -- change to next buffer
+vim.keymap.set("n", "<S-h>", ":bprevious<CR>")    -- change to previos buffer
+vim.keymap.set("n", "<leader>q", ":Bd<CR>")       -- close buffer without messing window layout
+vim.keymap.set("n", "<leader>Q", ":bufdo :Bd<CR>")       -- close all buffers without messing window layout
 
 -- Visual --
 -- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+vim.keymap.set("v", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
 
 -- Move text up and down
-keymap("v", "p", '"_dP', opts)  -- allows to paste multiple times tanked text
+vim.keymap.set("v", "p", '"_dP')  -- allows to paste multiple times tanked text
 
 -- Visual Block --
 -- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-
--- Telescope --
---[[ keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = vim_buffer_cat }))<cr>", opts) ]]
-keymap("n", "<leader>f", "<cmd>Telescope find_files <cr>", opts)
-keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
-
--- Nvimtree
-keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
-
+vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv")
+vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv")
