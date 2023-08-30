@@ -45,3 +45,6 @@ vim.keymap.set("v", "p", '"_dP')  -- allows to paste multiple times tanked text
 -- Move text up and down
 vim.keymap.set("x", "J", ":move '>+1<CR>gv-gv")
 vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv")
+
+-- find and replace selection
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
