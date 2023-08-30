@@ -8,7 +8,6 @@ vim.opt.guifont = "monospace:h17"               -- the font used in graphical ne
 vim.opt.ignorecase = true                       -- ignore case in search patterns
 vim.opt.mouse = "a"                             -- allow the mouse to be used in all modes
 vim.opt.number = true                           -- set numbered lines
-vim.opt.numberwidth = 2
 vim.opt.pumheight = 10                          -- pop up menu height
 vim.opt.relativenumber = true                   -- set relative numbered lines
 vim.opt.scrolloff = 16                          -- number of lines to keep vertically when scrolling
