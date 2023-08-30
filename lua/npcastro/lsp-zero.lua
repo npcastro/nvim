@@ -6,7 +6,7 @@ lsp.ensure_installed({
     'jsonls',
     'lua_ls',
     'pyright',
-    -- rubocop must not be installed. Else it collides with the one on projects' gemfiles
+    'rubocop',
     'tsserver',
     'volar',
 })
@@ -18,7 +18,9 @@ vim.lsp.set_log_level("debug")
 
 local lspconfig = require('lspconfig')
 
-lspconfig.rubocop.setup({})
+lspconfig.rubocop.setup({
+  cmd = { os.getenv( "HOME" ) .. "/.rbenv/shims/rubocop", '--lsp' },  -- resolves collition between mason and gemfile rubocop
+})
 
 -- local jsonls_opts = require("npcastro.lsp.settings.jsonls")
 -- lspconfig["jsonls"].setup(vim.tbl_deep_extend("force", jsonls_opts, opts))
@@ -43,6 +45,5 @@ lsp.setup()
 vim.diagnostic.config({
   virtual_text = true,
   underline = true,
-  update_in_insert = true
 })
 
