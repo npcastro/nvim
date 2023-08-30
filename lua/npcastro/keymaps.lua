@@ -48,3 +48,6 @@ vim.keymap.set("x", "K", ":move '<-2<CR>gv-gv")
 
 -- find and replace selection
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- Fugitive
+vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
