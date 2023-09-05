@@ -38,6 +38,7 @@ configs.setup {
   highlight = {
     enable = true, -- false will disable the whole extension
     disable = { "" }, -- list of language that will be disabled
+    additional_vim_regex_highlighting = true,  -- important to correctly highlight ruby symbols
   },
   ignore_install = { "" }, -- List of parsers to ignore installing
   rainbow = {
