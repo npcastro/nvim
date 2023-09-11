@@ -4,5 +4,13 @@ if not status_ok then
 end
 
 lualine.setup {
-  options = { theme = 'auto' }
+  options = { theme = 'auto' },
+  sections = {
+    lualine_c = {
+      {
+        'filename',
+        path = 1,
+      }
+    }
+  }
 }
