@@ -83,7 +83,13 @@ return packer.startup(function(use)
   use "L3MON4D3/LuaSnip" --snippet engine
 
   -- Telescope
-  use "nvim-telescope/telescope.nvim"
+  use {
+    "nvim-telescope/telescope.nvim", tag = '0.1.2',
+    requires = {
+      {'nvim-lua/plenary.nvim'},
+      {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
+    }
+  }
 
   -- Tree
   use "kyazdani42/nvim-tree.lua" -- file explorer
