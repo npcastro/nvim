@@ -4,7 +4,10 @@ if not status_ok then
 end
 
 lualine.setup {
-  options = { theme = 'auto' },
+  options = {
+    theme = 'auto',
+    globalstatus = true,
+  },
   sections = {
     lualine_c = {
       {
