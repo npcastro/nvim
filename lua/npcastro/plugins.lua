@@ -30,6 +30,7 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs" -- Automatically close brackets
   use "numToStr/Comment.nvim" -- Commenting plugin
   use "lukas-reineke/indent-blankline.nvim" -- identation lines
+  use "kylechui/nvim-surround" -- sorround symbols
 
   -- Bufferline
   use "akinsho/bufferline.nvim" -- Header that shows open buffers
