@@ -1,10 +1,6 @@
-local status_ok, telescope = pcall(require, "telescope")
-if not status_ok then
-  return
-end
-
-local actions = require "telescope.actions"
-local actions_layout = require("telescope.actions.layout")
+local telescope = require('telescope')
+local actions = require('telescope.actions')
+local actions_layout = require('telescope.actions.layout')
 
 telescope.setup {
   defaults = {

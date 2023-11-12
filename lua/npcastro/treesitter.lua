@@ -1,7 +1,4 @@
-local status_ok, configs = pcall(require, "nvim-treesitter.configs")
-if not status_ok then
-  return
-end
+configs = require('nvim-treesitter.configs')
 
 configs.setup {
   auto_install = true,

@@ -1,7 +1,4 @@
-local status_ok, nvim_tree = pcall(require, "nvim-tree")
-if not status_ok then
-  return
-end
+local nvim_tree = require('nvim-tree')
 
 -- to interact with the API
 -- local config_status_ok, nvim_tree_api = pcall(require, "nvim-tree-api.config")
