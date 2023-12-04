@@ -14,12 +14,12 @@ packer.init {
 }
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
--- vim.cmd [[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost plugins.lua source <afile> | PackerSync
---   augroup end
--- ]]
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync
+  augroup end
+]]
 
 -- Install your plugins here
 return packer.startup(function(use)
@@ -60,7 +60,7 @@ return packer.startup(function(use)
   -- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use {
     'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
+    branch = 'v3.x',
     requires = {
       -- LSP Support
       {'neovim/nvim-lspconfig'},             -- Required
@@ -85,7 +85,7 @@ return packer.startup(function(use)
 
   -- Telescope
   use {
-    "nvim-telescope/telescope.nvim", tag = '0.1.2',
+    "nvim-telescope/telescope.nvim",
     requires = {
       {'nvim-lua/plenary.nvim'},
       {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}

@@ -1,20 +1,5 @@
 local lsp = require('lsp-zero').preset({})
 
-lsp.ensure_installed({
-    'eslint',
-    'html',
-    'jsonls',
-    'lua_ls',
-    'pyright',
-    'rubocop',
-    'sorbet',
-    'tsserver',
-    'volar',
-})
-
--- Fix Undefined global 'vim'
-lsp.nvim_workspace()
-
 vim.lsp.set_log_level("debug")
 
 local lspconfig = require('lspconfig')
@@ -26,6 +11,10 @@ lspconfig.rubocop.setup({
 lspconfig.sorbet.setup({
   root_dir = lspconfig.util.root_pattern(".git"),
 })
+
+lspconfig.volar.setup{
+  filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+}
 
 -- local jsonls_opts = require("npcastro.lsp.settings.jsonls")
 -- lspconfig["jsonls"].setup(vim.tbl_deep_extend("force", jsonls_opts, opts))
@@ -45,7 +34,24 @@ lsp.on_attach(function(_, bufnr)
   vim.keymap.set('n', '<leader>cf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 end)
 
-lsp.setup()
+lsp.setup_servers({'eslint', 'html', 'jsonls', 'lua_ls', 'pyright', 'volar'})
+
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    'eslint',
+    'html',
+    'jsonls',
+    'lua_ls',
+    'pyright',
+    'rubocop',
+    'sorbet',
+    'volar',
+  },
+  handlers = {
+    lsp.default_setup,
+  }
+})
 
 vim.diagnostic.config({
   virtual_text = true,
