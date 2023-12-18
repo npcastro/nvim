@@ -13,11 +13,12 @@ local function on_attach(bufnr)
     return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
 
+  -- Apply Default mappings
+  api.config.mappings.default_on_attach(bufnr)
+
+  -- Add custom mappings
   vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
   vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
-  vim.keymap.set('n', 'v', api.node.open.vertical, opts('Open: Vertical Split'))
-  vim.keymap.set('n', 'p', api.node.open.preview, opts('Open: Preview'))
-
 end
 
 nvim_tree.setup {
