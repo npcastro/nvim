@@ -1,6 +1,6 @@
 local lsp = require('lsp-zero').preset({})
 
-vim.lsp.set_log_level("debug")
+vim.lsp.set_log_level('debug')
 
 local lspconfig = require('lspconfig')
 
@@ -10,6 +10,16 @@ lspconfig.rubocop.setup({
 })
 lspconfig.sorbet.setup({
   root_dir = lspconfig.util.root_pattern(".git"),
+})
+
+lspconfig.lua_ls.setup({
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }  -- avoid undefined global vim linter error
+      }
+    }
+  }
 })
 
 lspconfig.volar.setup{
