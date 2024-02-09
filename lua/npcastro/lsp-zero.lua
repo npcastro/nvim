@@ -8,6 +8,7 @@ lspconfig.rubocop.setup({
   cmd = { os.getenv( "HOME" ) .. "/.rbenv/shims/rubocop", '--lsp' },  -- resolves collition between mason and gemfile rubocop
   root_dir = lspconfig.util.root_pattern(".git"),
 })
+
 lspconfig.sorbet.setup({
   root_dir = lspconfig.util.root_pattern(".git"),
 })
