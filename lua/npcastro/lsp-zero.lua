@@ -1,6 +1,6 @@
 local lsp = require('lsp-zero').preset({})
 
-vim.lsp.set_log_level('debug')
+vim.lsp.set_log_level('WARN')
 
 local lspconfig = require('lspconfig')
 
