@@ -5,8 +5,8 @@ local actions_layout = require('telescope.actions.layout')
 telescope.setup {
   defaults = {
 
-    prompt_prefix = " ",
-    selection_caret = " ",
+    -- prompt_prefix = " ",
+    -- selection_caret = " ",
     path_display = { "absolute" },
     preview = {
       hide_on_startup = true,

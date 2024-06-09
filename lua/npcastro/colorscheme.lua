@@ -1,7 +1,6 @@
-local colorscheme = "gruvbox"
-
-local status_ok, _ = pcall(vim.cmd.colorscheme, colorscheme)
-if not status_ok then
-  vim.notify("colorscheme " .. colorscheme .. " not found!")
-  return
-end
+require("gruvbox").setup({
+    overrides = {
+        -- TelescopeSelection = {bg = "#3C3836"},
+    }
+})
+vim.cmd("colorscheme gruvbox")

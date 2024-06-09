@@ -41,7 +41,7 @@ return packer.startup(function(use)
   use 'folke/tokyonight.nvim'
   use {'dracula/vim', as = 'dracula'} -- Dark dracula theme
   use {'arcticicestudio/nord-vim', as = 'nord'} -- Blueish color pallete
-  use {'morhetz/gruvbox'}
+  use { "ellisonleao/gruvbox.nvim" }
 
   -- Completion
   use "hrsh7th/nvim-cmp" -- The completion plugin

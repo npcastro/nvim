@@ -1,7 +1,7 @@
 require "npcastro.autopairs"
+require "npcastro.colorscheme"
 require "npcastro.bufferline"
 require "npcastro.comment"
-require "npcastro.colorscheme"
 require "npcastro.filetypes"
 require "npcastro.gitsigns"
 require "npcastro.indent-blankline"
