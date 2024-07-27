@@ -32,6 +32,7 @@ vim.keymap.set("n", "<S-l>", ":bnext<CR>")        -- change to next buffer
 vim.keymap.set("n", "<S-h>", ":bprevious<CR>")    -- change to previos buffer
 vim.keymap.set("n", "<leader>q", ":Bd<CR>")       -- close buffer without messing window layout
 vim.keymap.set("n", "<leader>Q", ":bufdo :Bd<CR>")       -- close all buffers without messing window layout
+vim.keymap.set("n", "<leader>cp", ':let @+ = expand("%")<CR>')
 
 -- Visual --
 -- Stay in indent mode
