@@ -5,8 +5,9 @@ vim.lsp.set_log_level('WARN')
 local lspconfig = require('lspconfig')
 
 lspconfig.rubocop.setup({
-  cmd = { os.getenv( "HOME" ) .. "/.rbenv/shims/rubocop", '--lsp' },  -- resolves collition between mason and gemfile rubocop
-  root_dir = lspconfig.util.root_pattern(".git"),
+  -- cmd = { os.getenv( "HOME" ) .. "/.rbenv/shims/rubocop", '--lsp' },  -- resolves collition between mason and gemfile rubocop
+  -- root_dir = lspconfig.util.root_pattern(".git"),
+  filetypes = { "ruby", "rbi" },
 })
 
 lspconfig.sorbet.setup({
