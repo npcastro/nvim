@@ -1,10 +1,9 @@
 local lint = require('lint')
 
 lint.linters_by_ft = {
-  javascript = { 'volar', 'eslint' },
-  ruby = { 'rubocop' },
-  typescript = { 'volar', 'eslint' },
-  vue = { 'volar', 'eslint' },
+  javascript = { 'eslint' },
+  typescript = { 'eslint' },
+  vue = { 'eslint' },
 }
 
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
