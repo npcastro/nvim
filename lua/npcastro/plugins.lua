@@ -84,6 +84,9 @@ return packer.startup(function(use)
   -- Snippets
   use "L3MON4D3/LuaSnip" --snippet engine
 
+  -- Supermaven
+  use 'supermaven-inc/supermaven-nvim'
+
   -- Telescope
   use {
     "nvim-telescope/telescope.nvim",
