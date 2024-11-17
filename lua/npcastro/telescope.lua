@@ -2,6 +2,34 @@ local telescope = require('telescope')
 local actions = require('telescope.actions')
 local actions_layout = require('telescope.actions.layout')
 
+local ts_select_dir_for_grep = function()
+  local action_state = require("telescope.actions.state")
+  local fb = require("telescope").extensions.file_browser
+  local live_grep = require("telescope.builtin").live_grep
+  local current_line = action_state.get_current_line()
+
+  fb.file_browser({
+    files = false,
+    depth = false,
+    attach_mappings = function()
+      require("telescope.actions").select_default:replace(function()
+        local entry_path = action_state.get_selected_entry().Path
+        local dir = entry_path:is_dir() and entry_path or entry_path:parent()
+        local relative = dir:make_relative(vim.fn.getcwd())
+        local absolute = dir:absolute()
+
+        live_grep({
+          results_title = relative .. "/",
+          cwd = absolute,
+          default_text = current_line,
+        })
+      end)
+
+      return true
+    end,
+  })
+end
+
 telescope.setup {
   defaults = {
 
@@ -38,21 +66,19 @@ telescope.setup {
           -- "--smart-case",    -- do not asume case. Favors case sensitivity
     }
   },
-  pickers = {
-    -- Default configuration for builtin pickers goes here:
-    -- picker_name = {
-    --   picker_config_key = value,
-    --   ...
-    -- }
-    -- Now the picker_config_key will be applied every time you call this
-    -- builtin picker
+pickers = {
+    live_grep = {
+      mappings = {
+        i = {
+          ["<C-f>"] = ts_select_dir_for_grep,
+        },
+        n = {
+          ["<C-f>"] = ts_select_dir_for_grep,
+        },
+      },
+    },
   },
   extensions = {
-    -- Your extension configuration goes here:
-    -- extension_name = {
-    --   extension_config_key = value,
-    -- }
-    -- please take a look at the readme of the extension you want to configure
   },
 }
 

@@ -95,6 +95,10 @@ return packer.startup(function(use)
       {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
     }
   }
+  use {
+    'nvim-telescope/telescope-file-browser.nvim',
+    requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
+  }
 
   -- Tree
   use "kyazdani42/nvim-tree.lua" -- file explorer
