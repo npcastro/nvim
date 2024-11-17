@@ -52,7 +52,7 @@ require('mason-lspconfig').setup({
     'pyright',
     'rubocop',
     'sorbet',
-    'tsserver',
+    'ts_ls',
     'volar',
   },
   handlers = {
@@ -66,7 +66,7 @@ local vue_typescript_plugin = require('mason-registry')
   .. '/node_modules/@vue/language-server'
   .. '/node_modules/@vue/typescript-plugin'
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
   init_options = {
     plugins = {
       {
