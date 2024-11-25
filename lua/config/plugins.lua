@@ -57,7 +57,6 @@ return packer.startup(function(use)
   use "tpope/vim-fugitive"
 
   -- LSP
-  -- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v3.x',
