@@ -1,11 +1,5 @@
 local cmp = require('cmp')
 
-local snip_status_ok, luasnip = pcall(require, "luasnip")
-if not snip_status_ok then
-  return
-end
-
---   פּ ﯟ   some other good icons
 local kind_icons = {
   Text = "",
   Method = "m",
@@ -33,12 +27,11 @@ local kind_icons = {
   Operator = "",
   TypeParameter = "󰊄",
 }
--- find more here: https://www.nerdfonts.com/cheat-sheet
 
 cmp.setup {
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args.body)
+      vim.snippet.expand(args.body)
     end,
   },
   mapping = cmp.mapping.preset.insert({
@@ -46,34 +39,9 @@ cmp.setup {
     ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<CR>"] = cmp.mapping.confirm({ select = false }),
-    -- ["<Tab>"] = cmp.mapping(function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_next_item()
-    --   elseif luasnip.expandable() then
-    --     luasnip.expand()
-    --   elseif luasnip.expand_or_jumpable() then
-    --     luasnip.expand_or_jump()
-    --   else
-    --     fallback()
-    --   end
-    -- end, {
-    --   "i",
-    --   "s",
-    -- }),
-    -- ["<S-Tab>"] = cmp.mapping(function(fallback)
-    --   if cmp.visible() then
-    --     cmp.select_prev_item()
-    --   elseif luasnip.jumpable(-1) then
-    --     luasnip.jump(-1)
-    --   else
-    --     fallback()
-    --   end
-    -- end, {
-    --   "i",
-    --   "s",
-    -- }),
   }),
   formatting = {
+    -- changing the order of fields in the menu
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
       -- Kind icons
