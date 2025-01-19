@@ -9,6 +9,9 @@ return {
   -- Lualine
   { "nvim-lualine/lualine.nvim", dependencies = { "kyazdani42/nvim-web-devicons", lazy = true } },
 
+  -- Other
+  { 'rgroli/other.nvim' },
+
   -- Ruby
   { "RRethy/nvim-treesitter-endwise" }, -- auto add end
 
