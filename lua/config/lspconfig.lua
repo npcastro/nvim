@@ -58,6 +58,9 @@ require('mason-lspconfig').setup({
       lspconfig.sorbet.setup({
         cmd = { "srb", "tc", "--lsp", "--disable-watchman" },
         root_dir = lspconfig.util.root_pattern(".git"),
+        flags = {
+          debounce_text_changes = 500,
+        },
       })
     end,
     rubocop = function()
@@ -65,6 +68,9 @@ require('mason-lspconfig').setup({
         filetypes = { "ruby", "rbi" },
         cmd = { "bundle", "exec", "rubocop", "--lsp"}, -- use rubocop installed through Gemfile
         root_dir = lspconfig.util.root_pattern('.git', 'Gemfile.lock'),
+        flags = {
+          debounce_text_changes = 300,
+        },
       })
     end,
     lua_ls = function()
