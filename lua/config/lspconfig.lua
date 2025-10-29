@@ -56,13 +56,15 @@ require('mason-lspconfig').setup({
     end,
     sorbet = function()
       lspconfig.sorbet.setup({
+        cmd = { "srb", "tc", "--lsp", "--disable-watchman" },
         root_dir = lspconfig.util.root_pattern(".git"),
       })
     end,
     rubocop = function()
       lspconfig.rubocop.setup({
-        cmd = { os.getenv( "HOME" ) .. "/.rbenv/shims/rubocop", '--lsp' }, -- resolves collision between mason and gemfiles rubocop
         filetypes = { "ruby", "rbi" },
+        cmd = { "bundle", "exec", "rubocop", "--lsp"}, -- use rubocop installed through Gemfile
+        root_dir = lspconfig.util.root_pattern('.git', 'Gemfile.lock'),
       })
     end,
     lua_ls = function()
@@ -101,5 +103,5 @@ require('mason-lspconfig').setup({
 
 vim.diagnostic.config({
   virtual_text = true,
-  underline = true,
+  underline = true
 })
