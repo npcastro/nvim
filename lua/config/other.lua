@@ -1,13 +1,39 @@
 require("other-nvim").setup({
   mappings = {
-    "rails",
+    -- main app
     {
-      pattern = "/engines/(.*)/app/(.*).rb$",
+      pattern = "app/(.*)%.rb$",
+      target = "/sorbet/rbi/shims/%1.rbi",
+      context = "shim",
+    },
+    {
+      pattern = "app/(.*)%.rb$",
+      target = "/spec/%1_spec.rb",
+      context = "test",
+    },
+    {
+      pattern = "app/models/(.*)%.rb$",
+      target = "/spec/factories/%1.rb",
+      context = "factory",
+    },
+    -- engines
+    {
+      pattern = "engines/(.*)/app/(.*)%.rb$",
       target = "/spec/engines/%1/%2_spec.rb",
       context = "test",
     },
     {
-      pattern = "/spec/engines/(%w+)/(.*)_spec.rb$",
+      pattern = "engines/(.*)/app/(.*)%.rb$",
+      target = "/sorbet/rbi/shims/engines/%1/%2.rbi",
+      context = "shim",
+    },
+    {
+      pattern = "engines/(.*)/app/models/(.*)/(.*)%.rb$",
+      target = "/spec/factories/%1/%3.rb",
+      context = "factory",
+    },
+    {
+      pattern = "/spec/engines/(%w+)/(.*)_spec%.rb$",
       target = "/engines/%1/app/%2.rb",
       context = "implementation",
     },
