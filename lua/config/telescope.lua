@@ -66,7 +66,7 @@ telescope.setup {
           -- "--smart-case",    -- do not asume case. Favors case sensitivity
     }
   },
-pickers = {
+  pickers = {
     live_grep = {
       mappings = {
         i = {
@@ -84,3 +84,10 @@ pickers = {
 
 vim.keymap.set("n", "<leader>tf", "<cmd>Telescope find_files <cr>")
 vim.keymap.set("n", "<leader>tg", "<cmd>Telescope live_grep<cr>")
+vim.keymap.set("n", "<leader>ti", function()
+  require('telescope.builtin').live_grep({
+    file_ignore_patterns = { "^spec/", "^sorbet/" },
+  })
+end, { desc = "Live grep (Rails - no spec/sorbet)" }
+)
+
