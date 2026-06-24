@@ -24,8 +24,10 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- Resize with arrows
 vim.keymap.set("n", "<M-Up>", ":resize +2<CR>")
 vim.keymap.set("n", "<M-Down>", ":resize -2<CR>")
-vim.keymap.set("n", "<M-Left>", ":vertical resize -2<CR>")
-vim.keymap.set("n", "<M-Right>", ":vertical resize +2<CR>")
+vim.keymap.set("n", "<M-b>", ":vertical resize -2<CR>")
+vim.keymap.set("n", "<M-f>", ":vertical resize +2<CR>")
+-- vim.keymap.set("n", "<M-Left>", ":vertical resize -2<CR>")
+-- vim.keymap.set("n", "<M-Right>", ":vertical resize +2<CR>")
 
 -- Buffers
 vim.keymap.set("n", "<S-l>", ":bnext<CR>")        -- change to next buffer

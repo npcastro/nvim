@@ -86,10 +86,10 @@ require('mason-lspconfig').setup({
     end,
     ts_ls = function()
       local vue_typescript_plugin = require('mason-registry')
-      .get_package('vue-language-server')
-      :get_install_path()
-      .. '/node_modules/@vue/language-server'
-      .. '/node_modules/@vue/typescript-plugin'
+        .get_package('vue-language-server')
+        :get_install_path()
+        .. '/node_modules/@vue/language-server'
+        .. '/node_modules/@vue/typescript-plugin'
 
       lspconfig.ts_ls.setup({
         init_options = {
@@ -101,7 +101,12 @@ require('mason-lspconfig').setup({
             },
           }
         },
-        filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json' }
+        filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' }
+      })
+    end,
+    volar = function()
+      lspconfig.volar.setup({
+        filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue'}
       })
     end
   }
