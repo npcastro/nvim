@@ -7,7 +7,6 @@ lspconfig_defaults.capabilities = vim.tbl_deep_extend(
   require('cmp_nvim_lsp').default_capabilities()
 )
 
--- vim.lsp.set_log_level('WARN')
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'LSP actions',
   callback = function(event)
@@ -37,6 +36,33 @@ vim.diagnostic.config({
   },
 })
 
+vim.lsp.config('rubocop', {
+  cmd = { 'bundle', 'exec', 'rubocop', '--lsp' },
+  filetypes = { "ruby", "rbi" },
+})
+
+vim.lsp.config('sorbet', {
+  cmd = { 'srb', 'tc', '--lsp', '--disable-watchman' },
+  root_markers = { '.git' },
+})
+
+vim.lsp.config('lua_ls', {
+  settings = { Lua = { diagnostics = { globals = { 'vim' } } } },
+})
+
+local vue_typescript_plugin = require('mason-registry')
+  .get_package('vue-language-server'):get_install_path()
+  .. '/node_modules/@vue/language-server/node_modules/@vue/typescript-plugin'
+
+vim.lsp.config('ts_ls', {
+  init_options = { plugins = { {
+    name = '@vue/typescript-plugin',
+    location = vue_typescript_plugin,
+    languages = { 'javascript', 'typescript', 'vue' },
+  } } },
+  filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue' },
+})
+
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
@@ -48,68 +74,7 @@ require('mason-lspconfig').setup({
     'rubocop',
     'sorbet',
     'ts_ls',
-    'volar',
   },
-  handlers = {
-    function(server_name)
-      require('lspconfig')[server_name].setup({})
-    end,
-    sorbet = function()
-      lspconfig.sorbet.setup({
-        cmd = { "srb", "tc", "--lsp", "--disable-watchman" },
-        root_dir = lspconfig.util.root_pattern(".git"),
-        flags = {
-          debounce_text_changes = 500,
-        },
-      })
-    end,
-    rubocop = function()
-      lspconfig.rubocop.setup({
-        filetypes = { "ruby", "rbi" },
-        cmd = { "bundle", "exec", "rubocop", "--lsp"}, -- use rubocop installed through Gemfile
-        root_dir = lspconfig.util.root_pattern('.git', 'Gemfile.lock'),
-        flags = {
-          debounce_text_changes = 300,
-        },
-      })
-    end,
-    lua_ls = function()
-      lspconfig.lua_ls.setup({
-        settings = {
-          Lua = {
-            diagnostics = {
-              globals = { 'vim' }  -- avoid undefined global vim linter error
-            }
-          }
-        }
-      })
-    end,
-    ts_ls = function()
-      local vue_typescript_plugin = require('mason-registry')
-        .get_package('vue-language-server')
-        :get_install_path()
-        .. '/node_modules/@vue/language-server'
-        .. '/node_modules/@vue/typescript-plugin'
-
-      lspconfig.ts_ls.setup({
-        init_options = {
-          plugins = {
-            {
-              name = "@vue/typescript-plugin",
-              location = vue_typescript_plugin,
-              languages = {'javascript', 'typescript', 'vue'}
-            },
-          }
-        },
-        filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' }
-      })
-    end,
-    volar = function()
-      lspconfig.volar.setup({
-        filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue'}
-      })
-    end
-  }
 })
 
 vim.diagnostic.config({
