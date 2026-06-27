@@ -41,6 +41,7 @@ return {
   -- Treesitter
   {
     "nvim-treesitter/nvim-treesitter",
+    lazy = false,
     build = ":TSUpdate",
   },
   { "JoosepAlviste/nvim-ts-context-commentstring" }, -- Uses treesitter to set the type of commentstring based on the location of the cursor.
